@@ -18,11 +18,16 @@ async function loadProducts() {
 
 function normalizeImagePath(raw) {
   if (!raw) return "";
+  // Remove leading slashes/backslashes
   let p = raw.replace(/^[\\/]+/, "");
-  if (!p.startsWith("data/")) {
-    p = "data/" + p;
+  // Ensure path doesn't get doubled
+  if (p.startsWith("data/")) {
+    return p;
   }
-  return p;
+  if (p.startsWith("images/")) {
+    return "data/" + p;
+  }
+  return "data/" + p;
 }
 
 function buildProductCard(product) {
