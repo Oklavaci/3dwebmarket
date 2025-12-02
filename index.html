@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>entofold - 3D Baskı Hizmeti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="data/images/entofold-logo.png"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="home">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="index.html">
+            <img src="data/images/entofold-logo.png" alt="entofold" class="logo-mark" />
+          </a>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Ürünler</a>
+          <a href="upload.html">Özel Model Teklifi</a>
+          <a href="admin/login.html">Yönetim</a>
+        </nav>
+        <button id="themeToggle" class="icon-button" aria-label="Tema değiştir">
+          🌙
+        </button>
+      </div>
+    </header>
+
+    <main class="container page-content">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Profesyonel 3D Baskı Hizmeti</h1>
+          <p>
+            Prototipten son ürüne kadar; kaliteli filamentler ve hassas baskı
+            ayarlarıyla 3D baskı çözümleri sunuyoruz.
+          </p>
+          <div class="hero-actions">
+            <a href="upload.html" class="btn primary">Özel Model Teklifi Al</a>
+            <a href="#product-list" class="btn ghost">Hazır Ürünlere Göz At</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="filters">
+        <h2>Ürünler</h2>
+        <div class="filters-grid">
+          <div class="field">
+            <label for="searchInput">Ara</label>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Ürün adı veya kodu ile ara..."
+            />
+          </div>
+          <div class="field">
+            <label for="categoryFilter">Kategori</label>
+            <select id="categoryFilter">
+              <option value="">Tümü</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="stockFilter">Stok Durumu</label>
+            <select id="stockFilter">
+              <option value="">Tümü</option>
+              <option value="in_stock">Stokta</option>
+              <option value="made_to_order">Sipariş Üzerine</option>
+              <option value="out_of_stock">Tükendi</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section id="product-list" class="product-list"></section>
+
+      <section id="product-empty-state" class="empty-state hidden">
+        <p>Henüz gösterilecek ürün bulunamadı.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> entofold. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/products.js"></script>
+  </body>
+</html>
+
+

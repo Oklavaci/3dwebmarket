@@ -1,0 +1,42 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "code": "FD-000001",
+      "name": "Masaüstü Kablo Tutucu",
+      "description": "Masanızdaki şarj ve veri kablolarını düzenli şekilde sabit tutan kompakt 3D baskı kablo tutucu.",
+      "usageNotes": "Kuru bezle silin, doğrudan güneş ışığına ve yüksek ısıya maruz bırakmayın.",
+      "category": "Masaüstü Aksesuar",
+      "price": 150.0,
+      "currency": "TRY",
+      "filamentType": "PLA",
+      "colorOptions": ["Siyah", "Beyaz", "Kırmızı"],
+      "estimatedPrintTime": "3 saat",
+      "stockStatus": "in_stock",
+      "imagePath": "data/images/products/kablo-tutucu-1.png",
+      "whatsAppTemplate": "Merhaba, FD-000001 kodlu *Masaüstü Kablo Tutucu* ürününü 3D baskı olarak sipariş etmek istiyorum.",
+      "createdAt": "2025-01-01T10:00:00.000Z",
+      "updatedAt": "2025-01-01T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "code": "FD-000002",
+      "name": "Kulaklık Standı",
+      "description": "Masa üstünde şık görünen, kulaklığınızı güvenle taşıyan modern 3D baskı kulaklık standı.",
+      "usageNotes": "Nemli bezle silinebilir, kimyasal temizleyici kullanmayınız.",
+      "category": "Masaüstü Aksesuar",
+      "price": 320.0,
+      "currency": "TRY",
+      "filamentType": "PETG",
+      "colorOptions": ["Siyah", "Gri", "Turuncu"],
+      "estimatedPrintTime": "6 saat",
+      "stockStatus": "made_to_order",
+      "imagePath": "data/images/products/kulaklik-standi-1.png",
+      "whatsAppTemplate": "Merhaba, FD-000002 kodlu *Kulaklık Standı* ürününü 3D baskı olarak sipariş etmek istiyorum.",
+      "createdAt": "2025-01-02T12:00:00.000Z",
+      "updatedAt": "2025-01-02T12:00:00.000Z"
+    }
+  ]
+}
+
+

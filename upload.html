@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Özel 3D Model Teklifi - entofold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="data/images/entofold-logo.png"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="upload">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="index.html">
+            <img src="data/images/entofold-logo.png" alt="entofold" class="logo-mark" />
+          </a>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Ürünler</a>
+          <a href="upload.html" aria-current="page">Özel Model Teklifi</a>
+          <a href="admin/login.html">Yönetim</a>
+        </nav>
+        <button id="themeToggle" class="icon-button" aria-label="Tema değiştir">
+          🌙
+        </button>
+      </div>
+    </header>
+
+    <main class="container page-content">
+      <section class="card">
+        <h1>Özel 3D Model / STL Teklif Talebi</h1>
+        <p>
+          Henüz dosya yükleme altyapımız yok, ancak aşağıdaki formu doldurarak
+          WhatsApp veya e-posta üzerinden bize modelinizi iletebilirsiniz.
+        </p>
+
+        <form id="uploadRequestForm" class="form-grid">
+          <div class="field">
+            <label for="fullName">Ad Soyad</label>
+            <input type="text" id="fullName" required />
+          </div>
+          <div class="field">
+            <label for="email">E-posta</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="field">
+            <label for="phone">Telefon (WhatsApp)</label>
+            <input type="tel" id="phone" required />
+          </div>
+          <div class="field">
+            <label for="modelDescription">Model Açıklaması</label>
+            <textarea
+              id="modelDescription"
+              rows="3"
+              placeholder="Parça boyutları, kullanım amacı, istenen dayanıklılık vb."
+              required
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="material">Tercih Edilen Filament Türü</label>
+            <select id="material">
+              <option value="">Fark etmez / Tavsiye isteyeceğim</option>
+              <option value="PLA">PLA</option>
+              <option value="PETG">PETG</option>
+              <option value="ABS">ABS</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="color">Renk Tercihi</label>
+            <input
+              type="text"
+              id="color"
+              placeholder="Örnek: Siyah, Beyaz, Kırmızı..."
+            />
+          </div>
+          <div class="field">
+            <label for="deadline">İstenen Teslim Tarihi</label>
+            <input type="date" id="deadline" />
+          </div>
+          <div class="field full-width">
+            <label for="extraNotes">Ek Notlar</label>
+            <textarea
+              id="extraNotes"
+              rows="3"
+              placeholder="Montaj detayı, adet, bütçe aralığı vb."
+            ></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn primary">
+              Mesaj Metnini Oluştur
+            </button>
+          </div>
+        </form>
+
+        <section id="generatedMessageSection" class="generated-message hidden">
+          <h2>Oluşturulan Mesaj</h2>
+          <p class="small">
+            Aşağıdaki metni kopyalayıp WhatsApp veya e-posta üzerinden
+            gönderebilirsiniz.
+          </p>
+          <textarea id="generatedMessage" rows="8" readonly></textarea>
+          <div class="actions">
+            <button id="copyMessageBtn" class="btn ghost">
+              Metni Kopyala
+            </button>
+            <a
+              id="whatsAppLink"
+              class="btn secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp ile Aç
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> entofold. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/upload.js"></script>
+  </body>
+</html>
+
+

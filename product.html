@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ürün Detayı - entofold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="data/images/entofold-logo.png"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="product-detail">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="index.html">
+            <img src="data/images/entofold-logo.png" alt="entofold" class="logo-mark" />
+          </a>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Ürünler</a>
+          <a href="upload.html">Özel Model Teklifi</a>
+          <a href="admin/login.html">Yönetim</a>
+        </nav>
+        <button id="themeToggle" class="icon-button" aria-label="Tema değiştir">
+          🌙
+        </button>
+      </div>
+    </header>
+
+    <main class="container page-content">
+      <section id="product-detail" class="product-detail"></section>
+      <section id="product-detail-empty" class="empty-state hidden">
+        <p>Ürün bulunamadı veya geçersiz bağlantı.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> entofold. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/products.js"></script>
+  </body>
+</html>
+
+

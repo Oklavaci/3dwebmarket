@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yönetim Paneli - entofold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../data/images/entofold-logo.png"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="admin-dashboard">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../data/images/entofold-logo.png" alt="entofold" class="logo-mark" />
+          </a>
+        </div>
+        <nav class="main-nav">
+          <button id="logoutBtn" class="btn ghost small">Çıkış Yap</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-content admin-layout">
+      <aside class="admin-sidebar">
+        <button
+          class="sidebar-tab active"
+          data-tab="overviewTab"
+          type="button"
+        >
+          Genel Bakış
+        </button>
+        <button class="sidebar-tab" data-tab="productsTab" type="button">
+          Ürünler
+        </button>
+        <button class="sidebar-tab" data-tab="githubTab" type="button">
+          GitHub Ayarları
+        </button>
+      </aside>
+
+      <section class="admin-content">
+        <div id="overviewTab" class="admin-tab active">
+          <h1>Genel Bakış</h1>
+          <p>
+            Ürünleri yönetmek, stok durumlarını güncellemek ve GitHub senkronunu
+            yapılandırmak için sol menüden seçim yapın.
+          </p>
+        </div>
+
+        <div id="productsTab" class="admin-tab">
+          <h1>Ürün Yönetimi</h1>
+          <div id="adminProductsRoot"></div>
+        </div>
+
+        <div id="githubTab" class="admin-tab">
+          <h1>GitHub Ayarları</h1>
+          <div id="githubSettingsRoot"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> entofold. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/admin-auth.js"></script>
+    <script src="../assets/js/admin-products.js"></script>
+    <script src="../assets/js/github-integration.js"></script>
+  </body>
+</html>
+
+

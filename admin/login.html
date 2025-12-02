@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yönetim Girişi - entofold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../data/images/entofold-logo.png"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="admin-login">
+    <main class="auth-layout">
+      <section class="card auth-card">
+        <h1>entofold Yönetim Paneli</h1>
+        <p class="muted">
+          Lütfen yönetim paneline erişmek için giriş yapın.
+        </p>
+
+        <form id="adminLoginForm" class="form-grid">
+          <div class="field">
+            <label for="adminUsername">Kullanıcı Adı</label>
+            <input type="text" id="adminUsername" required />
+          </div>
+          <div class="field">
+            <label for="adminPassword">Şifre</label>
+            <input type="password" id="adminPassword" required />
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn primary">Giriş Yap</button>
+          </div>
+        </form>
+
+        <p id="adminLoginError" class="error-text hidden">
+          Geçersiz kullanıcı adı veya şifre.
+        </p>
+      </section>
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/admin-auth.js"></script>
+  </body>
+</html>
+
+
