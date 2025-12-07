@@ -135,6 +135,48 @@ async function pushProductsJsonToGithub(newProductsJsonString) {
   );
 }
 
+// Upload a binary file (image) to the repository under the given path.
+// `path` should be like `data/images/products/filename.png`.
+// Returns the path on success. Throws on error.
+async function uploadImageToGithub(path, file) {
+  const settings = getGithubSettings();
+  if (!settings || !settings.token) throw new Error('GitHub ayarları eksik - lütfen token girin.');
+
+  // Read file as base64
+  const arrayBuffer = await file.arrayBuffer();
+  let binary = '';
+  const bytes = new Uint8Array(arrayBuffer);
+  const chunkSize = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    const chunk = bytes.subarray(i, i + chunkSize);
+    binary += String.fromCharCode.apply(null, chunk);
+  }
+  const base64 = btoa(binary);
+
+  // Check if file exists to get sha
+  let sha;
+  try {
+    const existing = await githubApiRequest(`/repos/${settings.owner}/${settings.repo}/contents/${encodeURIComponent(path)}`, { method: 'GET' });
+    if (existing && existing.sha) sha = existing.sha;
+  } catch (err) {
+    // Not found is fine; otherwise allow PUT to create
+  }
+
+  const body = {
+    message: `Add product image ${path}`,
+    content: base64,
+    branch: settings.branch || 'main',
+  };
+  if (sha) body.sha = sha;
+
+  // Use low-level fetch to include correct headers (githubApiRequest already handles auth)
+  const result = await githubApiRequest(`/repos/${settings.owner}/${settings.repo}/contents/${encodeURIComponent(path)}`, { method: 'PUT', body });
+  if (result && result.content && result.content.path) {
+    return result.content.path;
+  }
+  throw new Error('GitHub upload failed');
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.getAttribute("data-page");
   if (page === "admin-dashboard") {

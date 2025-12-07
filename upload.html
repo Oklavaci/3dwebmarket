@@ -2,7 +2,7 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <title>Özel 3D Model Teklifi - entofold</title>
+    <title>Özel 3D Model Teklifi - 3dwebmarket</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com https://api.githubusercontent.com;">
     <link
@@ -18,13 +18,15 @@
       <div class="container header-inner">
         <div class="logo">
           <a href="index.html">
-            <img src="data/images/3dwebmarket_v1.png" alt="3dwebmarket" class="logo-mark" />
+            <img src="data/images/logo.png" alt="3dwebmarket" class="logo-mark" />
           </a>
         </div>
         <nav class="main-nav">
           <a href="index.html">Ürünler</a>
-          <a href="upload.html" aria-current="page">Özel Model Teklifi</a>
-          <a href="admin/login.html">Yönetim</a>
+          <a href="upload.html">Özel Tasarım</a>
+          <a href="bring.html">Modelini Getir, Biz Basalım</a>
+          <a href="about.html">Hakkımızda</a>
+          <!-- <a href="admin/login.html">Panel</a> -->
         </nav>
         <button id="themeToggle" class="icon-button" aria-label="Tema değiştir">
           🌙
@@ -34,11 +36,7 @@
 
     <main id="main" class="container page-content">
       <section class="card">
-        <h1>Özel 3D Model / STL Teklif Talebi</h1>
-        <p>
-          Henüz dosya yükleme altyapımız yok, ancak aşağıdaki formu doldurarak
-          WhatsApp veya e-posta üzerinden bize modelinizi iletebilirsiniz.
-        </p>
+        <h1>Özel Baskı Talebi</h1>
 
         <form id="uploadRequestForm" class="form-grid">
           <div class="field">
@@ -63,20 +61,11 @@
             ></textarea>
           </div>
           <div class="field">
-            <label for="material">Tercih Edilen Filament Türü</label>
-            <select id="material">
-              <option value="">Fark etmez / Tavsiye isteyeceğim</option>
-              <option value="PLA">PLA</option>
-              <option value="PETG">PETG</option>
-              <option value="ABS">ABS</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="color">Renk Tercihi</label>
+            <label for="color">Boya Tercihi</label>
             <input
               type="text"
               id="color"
-              placeholder="Örnek: Siyah, Beyaz, Kırmızı..."
+              placeholder="Ürünü saf tek renk baskı istiyorum/ boyanmasını istiyorum"
             />
           </div>
           <div class="field">
@@ -124,7 +113,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>&copy; <span id="year"></span> entofold. Tüm hakları saklıdır.</p>
+        <p>&copy; <span id="year"></span> 3dwebmarket. Tüm hakları saklıdır.</p>
       </div>
     </footer>
 

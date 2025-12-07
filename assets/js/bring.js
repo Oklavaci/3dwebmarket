@@ -34,10 +34,20 @@ function setupBringForm() {
     }
 
     lines.push('', 'Not: Model dosyasını randevu ile veya yerinde teslim edeceğim.');
-
+    
     const msg = lines.join('\n');
     const encoded = encodeURIComponent(msg);
-    const url = `https://wa.me/?text=${encoded}`;
+
+    // WHATSAPP BUSINESS NUMBER HERE
+    const businessNumber = "...";  
+
+    const url = `https://wa.me/${businessNumber}?text=${encoded}`;
+    if (waLink) waLink.href = url;
+
+    // open in new tab
+    window.open(url, '_blank');
+
+
     if (waLink) waLink.href = url;
     // open in new tab/window
     window.open(url, '_blank');

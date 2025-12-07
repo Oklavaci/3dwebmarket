@@ -146,6 +146,12 @@ async function renderAdminProductsSection() {
         <div class="field">
           <label for="apImagePath">Ana Görsel Yolu</label>
           <input id="apImagePath" placeholder="images/products/..." />
+          <input id="apImagePath" placeholder="data/images/products/..." />
+        </div>
+        <div class="field">
+          <label for="apImageFile">Görsel Yükle (opsiyonel)</label>
+          <input id="apImageFile" type="file" accept="image/*" />
+          <div class="small muted"><button type="button" class="btn ghost small" id="apUploadImageBtn">GitHub'a Yükle</button> <span id="apUploadStatus" class="small muted"></span></div>
         </div>
         <div class="field full-width">
           <label for="apColors">Renk Seçenekleri (virgülle ayır)</label>
@@ -330,6 +336,35 @@ async function renderAdminProductsSection() {
 
       closeProductForm();
       renderAdminProductsSection();
+    });
+  }
+
+  // Image upload button handler
+  const uploadBtn = document.getElementById('apUploadImageBtn');
+  if (uploadBtn) {
+    uploadBtn.addEventListener('click', async () => {
+      const fileInput = document.getElementById('apImageFile');
+      const status = document.getElementById('apUploadStatus');
+      if (!fileInput || !fileInput.files || !fileInput.files[0]) {
+        alert('Lütfen önce bir görsel seçin.');
+        return;
+      }
+      const file = fileInput.files[0];
+      // Construct path
+      const safeName = file.name.replace(/[^a-zA-Z0-9_.-]/g, '-');
+      const timestamp = Date.now();
+      const path = `data/images/products/${timestamp}-${safeName}`;
+      if (status) status.textContent = 'Yükleniyor...';
+      try {
+        // uploadImageToGithub is provided by github-integration.js
+        const uploadedPath = await uploadImageToGithub(path, file);
+        document.getElementById('apImagePath').value = uploadedPath;
+        if (status) status.textContent = 'Yüklendi: ' + uploadedPath;
+      } catch (err) {
+        console.error(err);
+        if (status) status.textContent = 'Yükleme başarısız: ' + (err && err.message ? err.message : err);
+        alert('Görsel yükleme başarısız: ' + (err && err.message ? err.message : err));
+      }
     });
   }
 }
