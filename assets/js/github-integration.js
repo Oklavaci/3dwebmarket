@@ -1,11 +1,11 @@
 // GitHub REST API integration placeholders for static admin panel
 // NOTE: For security, never hard-code personal access tokens in this file.
-// The admin can paste a token in the UI, which is then stored in localStorage.
+// The admin can paste a token in the UI, which is then stored in sessionStorage.
 
 const GITHUB_SETTINGS_KEY = "3dprint_github_settings";
 
 function getGithubSettings() {
-  const raw = localStorage.getItem(GITHUB_SETTINGS_KEY);
+  const raw = sessionStorage.getItem(GITHUB_SETTINGS_KEY);
   if (!raw) return null;
   try {
     return JSON.parse(raw);
@@ -15,7 +15,7 @@ function getGithubSettings() {
 }
 
 function saveGithubSettings(settings) {
-  localStorage.setItem(GITHUB_SETTINGS_KEY, JSON.stringify(settings));
+  sessionStorage.setItem(GITHUB_SETTINGS_KEY, JSON.stringify(settings));
 }
 
 async function githubApiRequest(path, { method = "GET", body } = {}) {
@@ -44,31 +44,26 @@ function renderGithubSettings() {
   const root = document.getElementById("githubSettingsRoot");
   if (!root) return;
 
-  const current = getGithubSettings() || {
-    owner: "mevlut-celik",
-    repo: "3dprint-site",
-    branch: "main",
-    token: "",
-  };
+  const current = getGithubSettings() || { owner: "mevlut-celik", repo: "3dprint-site", branch: "main", token: "" };
 
   root.innerHTML = `
     <div class="github-settings-grid">
       <div class="field">
         <label for="ghOwner">GitHub Kullanıcı / Organizasyon</label>
-        <input id="ghOwner" value="${current.owner || ""}" />
+        <input id="ghOwner" value="${escapeHtml(current.owner || "")}" />
       </div>
       <div class="field">
         <label for="ghRepo">Repo Adı</label>
-        <input id="ghRepo" value="${current.repo || ""}" />
+        <input id="ghRepo" value="${escapeHtml(current.repo || "")}" />
       </div>
       <div class="field">
         <label for="ghBranch">Branch</label>
-        <input id="ghBranch" value="${current.branch || "main"}" />
+        <input id="ghBranch" value="${escapeHtml(current.branch || "main")}" />
       </div>
       <div class="field">
         <label for="ghToken">Kişisel Erişim Token'ı</label>
         <input id="ghToken" type="password" placeholder="Token'ı buraya yapıştırın" />
-        <span class="small muted">Token yalnızca bu tarayıcıda localStorage içinde tutulur.</span>
+        <span class="small muted">Token yalnızca bu tarayıcı oturumu içinde (sessionStorage) tutulur.</span>
       </div>
       <div class="actions">
         <button type="button" class="btn primary small" id="saveGhSettingsBtn">Ayarları Kaydet</button>
@@ -117,9 +112,8 @@ function renderGithubSettings() {
       } catch (err) {
         console.error(err);
         if (statusArea) {
-          statusArea.innerHTML = `<span class="status-pill error">Hata: ${
-            err.message || err
-          }</span>`;
+          const safe = escapeHtml(String(err && err.message ? err.message : err));
+          statusArea.innerHTML = `<span class="status-pill error">Hata: ${safe}</span>`;
         }
       }
     });

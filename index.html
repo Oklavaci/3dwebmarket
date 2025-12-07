@@ -2,27 +2,36 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <title>entofold - 3D Baskı Hizmeti</title>
+    <title>3D WEB MARKET</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="3D baskı hizmetleri: hazır modeller veya özel tasarımlar için kaliteli, hassas ve uygun maliyetli üretim çözümleri." />
+    <meta property="og:title" content="3D WEB MARKET" />
+    <meta property="og:description" content="3D baskı hizmetleri: hazır modeller veya özel tasarımlar için kaliteli, hassas ve uygun maliyetli üretim çözümleri." />
+    <meta property="og:image" content="data/images/3dwebmarket_v1.png" />
+    <meta property="og:type" content="website" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com https://api.githubusercontent.com;">
     <link
       rel="icon"
       type="image/png"
-      href="data/images/entofold-logo.png"
+      href="data/images/3dwebmarket_v1.png"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body data-page="home">
+    <a class="skip-link" href="#main">İçeriğe atla</a>
     <header class="site-header">
       <div class="container header-inner">
         <div class="logo">
           <a href="index.html">
-            <img src="data/images/entofold-logo.png" alt="entofold" class="logo-mark" />
+            <img src="data/images/3dwebmarket_v1.png" alt="3dwebmarket" class="logo-mark" />
           </a>
         </div>
         <nav class="main-nav">
           <a href="index.html">Ürünler</a>
-          <a href="upload.html">Özel Model Teklifi</a>
-          <a href="admin/login.html">Yönetim</a>
+          <a href="upload.html">Özel Tasarım</a>
+          <a href="bring.html">Modelini Getir, Biz Basalım</a>
+          <a href="about.html">Hakkımızda</a>
+          <!-- <a href="admin/login.html">Panel</a> -->
         </nav>
         <button id="themeToggle" class="icon-button" aria-label="Tema değiştir">
           🌙
@@ -30,17 +39,17 @@
       </div>
     </header>
 
-    <main class="container page-content">
+    <main id="main" class="container page-content">
       <section class="hero">
         <div class="hero-text">
-          <h1>Profesyonel 3D Baskı Hizmeti</h1>
+          <h1>Yüksek kalite 3D baskı hizmeti</h1>
           <p>
-            Prototipten son ürüne kadar; kaliteli filamentler ve hassas baskı
-            ayarlarıyla 3D baskı çözümleri sunuyoruz.
+          Hazır modelinizi veya istediğiniz tasarımı, temiz yüzey kalitesi ve hassas detaylarla üretiyoruz.
           </p>
           <div class="hero-actions">
-            <a href="upload.html" class="btn primary">Özel Model Teklifi Al</a>
-            <a href="#product-list" class="btn ghost">Hazır Ürünlere Göz At</a>
+            <a href="#product-list" class="btn ghost">Ürünlere Göz At</a>
+            <a href="bring.html" class="btn primary">Hazır Modelim Var</a>
+            <a href="upload.html" class="btn primary">Tasarım Talebi Oluştur</a>
           </div>
         </div>
       </section>
@@ -83,7 +92,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>&copy; <span id="year"></span> entofold. Tüm hakları saklıdır.</p>
+        <p>&copy; <span id="year"></span> 3dwebmarket Tüm hakları saklıdır.</p>
       </div>
     </footer>
 

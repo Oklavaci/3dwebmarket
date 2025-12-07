@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modelini Getir - 3dwebmarket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.github.com https://api.github.com;">
+    <link rel="icon" type="image/png" href="data/images/3dwebmarket_v1.png" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body data-page="bring">
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <a href="index.html">
+            <img src="data/images/3dwebmarket_v1.png" alt="3dwebmarket" class="logo-mark" />
+          </a>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Ürünler</a>
+          <a href="upload.html">Özel Tasarım</a>
+          <a href="bring.html" aria-current="page">Modelini Getir</a>
+        </nav>
+        <button id="themeToggle" class="icon-button" aria-label="Tema değiştir">🌙</button>
+      </div>
+    </header>
+
+    <main class="container page-content">
+      <section class="card">
+        <h1>Modelini Getir, Biz Basalım</h1>
+        <p class="muted">Basit teslim formu — WhatsApp ile hızlıca bilgi gönderin.</p>
+
+        <form id="bringForm" class="form-grid">
+          <div class="field">
+            <label for="bFullName">Ad Soyad</label>
+            <input type="text" id="bFullName" required />
+          </div>
+          <div class="field">
+            <label for="bPhone">Telefon (WhatsApp)</label>
+            <input type="tel" id="bPhone" required />
+          </div>
+          <div class="field full-width">
+            <label for="bNotes">Kısa Not (isteğe bağlı)</label>
+            <textarea id="bNotes" rows="3" placeholder="Teslim notu, adet, vs."></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn primary">WhatsApp ile Gönder</button>
+            <a id="bWhatsAppLink" class="btn ghost" target="_blank" rel="noopener noreferrer">WhatsApp Aç</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> 3dwebmarket Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/bring.js"></script>
+  </body>
+</html>

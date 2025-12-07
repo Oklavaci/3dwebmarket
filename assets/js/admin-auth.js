@@ -1,9 +1,9 @@
-// Simple localStorage-based admin auth
+// Simple sessionStorage-based admin auth (still not production-grade)
 
 const ADMIN_USER_KEY = "3dprint_admin_user";
 
 function isAdminAuthenticated() {
-  return !!localStorage.getItem(ADMIN_USER_KEY);
+  return !!sessionStorage.getItem(ADMIN_USER_KEY);
 }
 
 function requireAdminOnDashboard() {
@@ -23,12 +23,12 @@ function setupAdminLogin() {
     const password = document.getElementById("adminPassword").value.trim();
 
     // NOTE: Since this is a static site, credentials are only for obscurity,
-    // not real security. You can adjust these or move to GitHub OAuth later.
+    // not real security. Consider moving to server-side auth or OAuth for production.
     const validUsername = "admin";
     const validPassword = "3dprint";
 
     if (username === validUsername && password === validPassword) {
-      localStorage.setItem(
+      sessionStorage.setItem(
         ADMIN_USER_KEY,
         JSON.stringify({ username, loggedInAt: new Date().toISOString() })
       );
@@ -47,7 +47,7 @@ function setupAdminDashboardShell() {
 
   const logoutBtn = document.getElementById("logoutBtn");
   logoutBtn?.addEventListener("click", () => {
-    localStorage.removeItem(ADMIN_USER_KEY);
+    sessionStorage.removeItem(ADMIN_USER_KEY);
     window.location.href = "login.html";
   });
 

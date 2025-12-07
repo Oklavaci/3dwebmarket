@@ -19,6 +19,28 @@
     "Segoe UI", sans-serif;
 }
 
+/* Skip-to-content link (visible on focus for keyboard users) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0.75rem;
+  background: var(--color-bg-elevated);
+  color: var(--color-fg);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 9999;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
+  font-size: 0.95rem;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 1rem;
+  top: 1rem;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 [data-theme="light"] {
   --color-bg: #f5f7fb;
   --color-bg-elevated: #ffffff;
@@ -122,8 +144,11 @@ main {
 .logo a {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.7rem 0.35rem;
-  border-radius: 999px;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #ffffff;
   text-decoration: none;
@@ -133,10 +158,11 @@ main {
 }
 
 .logo-mark {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  object-fit: cover;
   display: block;
+  border-radius: 50%;
 }
 
 [data-theme="light"] .logo a {
@@ -506,6 +532,44 @@ main {
   margin-top: 0.15rem;
 }
 
+/* Increased spacing variant for product detail view */
+.product-meta--spaced {
+  margin-top: 0.8rem;
+}
+
+/* Grid layout for product detail specification list */
+.detail-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.35rem 1.2rem;
+}
+
+.detail-section {
+  margin-top: 1.1rem;
+}
+
+.detail-heading {
+  font-size: 0.98rem;
+  margin-bottom: 0.35rem;
+}
+
+.detail-footer {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Admin area action group (buttons) */
+.admin-actions {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
 .product-price {
   font-weight: 600;
   font-size: 0.95rem;
@@ -854,12 +918,14 @@ main {
   }
 
   .logo a {
-    padding-inline: 0.5rem;
+    padding-inline: 0;
+    width: 48px;
+    height: 48px;
   }
 
   .logo-mark {
-    width: 42px;
-    height: 42px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
   }
 
   .hero-text {

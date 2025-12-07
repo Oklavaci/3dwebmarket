@@ -40,15 +40,12 @@ function setupYear() {
 }
 
 function parseQueryParams() {
-  const params = {};
-  const search = window.location.search.substring(1);
-  if (!search) return params;
-  search.split("&").forEach((pair) => {
-    const [key, value] = pair.split("=");
-    if (!key) return;
-    params[decodeURIComponent(key)] = decodeURIComponent(value || "");
-  });
-  return params;
+  // Use URLSearchParams which correctly handles encoding and multiple values
+  try {
+    return Object.fromEntries(new URLSearchParams(window.location.search));
+  } catch (e) {
+    return {};
+  }
 }
 
 function formatPrice(value, currency) {
@@ -64,9 +61,27 @@ function formatPrice(value, currency) {
 }
 
 function createElementFromHTML(htmlString) {
-  const div = document.createElement("div");
-  div.innerHTML = htmlString.trim();
-  return div.firstElementChild;
+  const template = document.createElement("template");
+  template.innerHTML = htmlString.trim();
+  return template.content.firstElementChild;
+}
+
+// Escape HTML to avoid XSS when inserting untrusted content into templates
+function escapeHtml(unsafe) {
+  if (unsafe == null) return "";
+  return String(unsafe)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+// Basic phone validation: allow 10-13 digits after removing non-digit chars
+function validatePhone(input) {
+  if (!input) return false;
+  const digits = String(input).replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 13;
 }
 
 document.addEventListener("DOMContentLoaded", () => {

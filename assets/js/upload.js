@@ -62,6 +62,11 @@ function setupUploadForm() {
       return;
     }
 
+    if (!validatePhone(phone)) {
+      alert("Telefon formatı geçersiz. Lütfen başında '+90' veya '0' veya doğrudan numara olacak şekilde 10-13 haneli bir numara girin.");
+      return;
+    }
+
     const msg = buildUploadMessage({
       fullName,
       email,

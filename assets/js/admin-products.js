@@ -1,4 +1,4 @@
-// Admin product CRUD using localStorage as working copy, with a friendlier form UI
+// Admin product CRUD using sessionStorage as working copy (client-side draft)
 
 const ADMIN_PRODUCTS_KEY = "3dprint_admin_products_draft";
 let currentProductEditIndex = null;
@@ -16,7 +16,7 @@ async function loadBaseProductsForAdmin() {
 }
 
 async function getAdminProducts() {
-  const draft = localStorage.getItem(ADMIN_PRODUCTS_KEY);
+  const draft = sessionStorage.getItem(ADMIN_PRODUCTS_KEY);
   if (draft) {
     try {
       const parsed = JSON.parse(draft);
@@ -29,7 +29,7 @@ async function getAdminProducts() {
 }
 
 async function saveAdminProducts(products) {
-  localStorage.setItem(ADMIN_PRODUCTS_KEY, JSON.stringify(products));
+  sessionStorage.setItem(ADMIN_PRODUCTS_KEY, JSON.stringify(products));
 }
 
 function generateProductCode(lastNumericId) {
@@ -93,7 +93,7 @@ async function renderAdminProductsSection() {
     <div class="small muted">
       Toplam ürün: <strong>${count}</strong> (Değişiklikler şu an yalnızca bu tarayıcıda tutuluyor)
     </div>
-    <div style="margin-top:0.7rem;display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;">
+    <div class="admin-actions">
       <button type="button" class="btn primary small" id="addProductBtn">Yeni Ürün Ekle</button>
       <button type="button" class="btn ghost small" id="resetProductsBtn">Taslakları Sıfırla</button>
     </div>
@@ -173,10 +173,10 @@ async function renderAdminProductsSection() {
   products.forEach((p, idx) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td>${p.code || ""}</td>
-      <td>${p.name || ""}</td>
-      <td>${p.category || ""}</td>
-      <td>${p.stockStatus || ""}</td>
+      <td>${escapeHtml(p.code || "")}</td>
+      <td>${escapeHtml(p.name || "")}</td>
+      <td>${escapeHtml(p.category || "")}</td>
+      <td>${escapeHtml(p.stockStatus || "")}</td>
       <td>
         <button type="button" class="btn ghost small" data-action="edit" data-idx="${idx}">Düzenle</button>
         <button type="button" class="btn ghost small" data-action="delete" data-idx="${idx}">Sil</button>
@@ -231,7 +231,7 @@ async function renderAdminProductsSection() {
         )
       )
         return;
-      localStorage.removeItem(ADMIN_PRODUCTS_KEY);
+      sessionStorage.removeItem(ADMIN_PRODUCTS_KEY);
       closeProductForm();
       renderAdminProductsSection();
     });
