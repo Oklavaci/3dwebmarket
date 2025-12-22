@@ -1,6 +1,9 @@
 /* products-clean.js
    Clean, scoped product renderer to replace a corrupted products.js.
 */
+// Global WhatsApp business number for all product links
+const BUSINESS_WHATSAPP_NUMBER = "+905308563042"; // <-- Set your WhatsApp number here
+
 (function () {
   const PRODUCTS_JSON_PATH = 'data/products.json';
   let _cachedProducts = null;
@@ -90,8 +93,7 @@
 
     const wa = document.createElement('a');
     const waText = product.whatsAppTemplate || ('Merhaba, ' + (product.code || '') + ' kodlu ' + (product.name || '') + ' ürünü hakkında bilgi almak istiyorum.');
-    const businessNumber = "..."; // <-- WHATSAPP NUMBER
-    wa.href = `https://wa.me/${businessNumber}?text=${encodeURIComponent(waText)}`;
+    wa.href = `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
     wa.target = '_blank';
     wa.rel = 'noopener noreferrer';
     wa.className = 'btn secondary small';
@@ -190,9 +192,8 @@
     const footer = document.createElement('footer'); footer.className = 'detail-footer';
     const wa = document.createElement('a'); wa.className = 'btn primary small'; wa.target = '_blank'; wa.rel = 'noopener noreferrer';
     const waText = product.whatsAppTemplate || ('Merhaba, ' + (product.code || '') + ' kodlu ' + (product.name || '') + ' ürünü 3D baskı olarak sipariş etmek istiyorum.');
-    const businessNumber = "..."; // <-- WHATSAPP NUMBER
-    wa.href = `https://wa.me/${businessNumber}?text=${encodeURIComponent(waText)}`;
-  wa.textContent = 'WhatsApp ile Sipariş Ver'; footer.appendChild(wa);
+    wa.href = `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
+    wa.textContent = 'WhatsApp ile Sipariş Ver'; footer.appendChild(wa);
     const back = document.createElement('a'); back.href = 'index.html'; back.className = 'btn ghost small'; back.textContent = 'Diğer Ürünlere Geri Dön'; footer.appendChild(back);
     card.appendChild(footer);
 
