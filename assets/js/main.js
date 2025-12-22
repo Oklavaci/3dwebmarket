@@ -1,4 +1,8 @@
+
 // Theme handling, shared utilities and small UI behaviors
+
+// Global WhatsApp business number for all product links
+const BUSINESS_WHATSAPP_NUMBER = "+905308563042"; // <-- Set your WhatsApp number here
 
 const THEME_STORAGE_KEY = "3dprint_theme";
 const ADMIN_TOKEN_KEY = "3dprint_admin_token";

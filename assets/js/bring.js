@@ -38,18 +38,8 @@ function setupBringForm() {
     const msg = lines.join('\n');
     const encoded = encodeURIComponent(msg);
 
-    // WHATSAPP BUSINESS NUMBER HERE
-    const businessNumber = "...";  
-
-    const url = `https://wa.me/${businessNumber}?text=${encoded}`;
+    const url = `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${encoded}`;
     if (waLink) waLink.href = url;
-
-    // open in new tab
-    window.open(url, '_blank');
-
-
-    if (waLink) waLink.href = url;
-    // open in new tab/window
     window.open(url, '_blank');
   });
 }

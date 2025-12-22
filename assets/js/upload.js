@@ -83,8 +83,7 @@ function setupUploadForm() {
 
     if (waLink) {
       const encoded = encodeURIComponent(msg);
-      const businessNumber = "..."; // <--  WHATSAPP NUMBER
-      waLink.href = `https://wa.me/${businessNumber}?text=${encoded}`;
+      waLink.href = `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${encoded}`;
 
     }
   });

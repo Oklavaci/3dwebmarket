@@ -59,7 +59,7 @@ function buildProductCard(product) {
       </div>
       <footer class="product-footer">
         <a href="product.html?id=${encodeURIComponent(product.id)}" class="btn ghost small">Detaya Git</a>
-        <a href="https://wa.me/?text=${encodeURIComponent(product.whatsAppTemplate || `Merhaba, ${safeCode} kodlu ${safeName} ürünü hakkında bilgi almak istiyorum.`)}" target="_blank" rel="noopener noreferrer" class="btn secondary small">WhatsApp</a>
+        <a href="https://wa.me/${typeof BUSINESS_WHATSAPP_NUMBER !== 'undefined' ? BUSINESS_WHATSAPP_NUMBER : ''}?text=${encodeURIComponent(product.whatsAppTemplate || `Merhaba, ${safeCode} kodlu ${safeName} ürünü hakkında bilgi almak istiyorum.`)}" target="_blank" rel="noopener noreferrer" class="btn secondary small">WhatsApp</a>
       </footer>
     </article>
   `);
@@ -192,7 +192,7 @@ async function renderProductDetailPage() {
         <p class="small">${safeUsage}</p>
       </section>
       <footer class="detail-footer">
-        <a href="https://wa.me/?text=${encodeURIComponent(product.whatsAppTemplate || `Merhaba, ${safeCode} kodlu ${safeName} ürünü 3D baskı olarak sipariş etmek istiyorum.`)}" target="_blank" rel="noopener noreferrer" class="btn primary small">WhatsApp ile Sipariş Ver</a>
+        <a href="https://wa.me/${typeof BUSINESS_WHATSAPP_NUMBER !== 'undefined' ? BUSINESS_WHATSAPP_NUMBER : ''}?text=${encodeURIComponent(product.whatsAppTemplate || `Merhaba, ${safeCode} kodlu ${safeName} ürünü 3D baskı olarak sipariş etmek istiyorum.`)}" target="_blank" rel="noopener noreferrer" class="btn primary small">WhatsApp ile Sipariş Ver</a>
         <a href="index.html" class="btn ghost small">Diğer Ürünlere Geri Dön</a>
       </footer>
     </article>
